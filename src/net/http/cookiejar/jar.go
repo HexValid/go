@@ -74,14 +74,14 @@ type Jar struct {
 
 // New returns a new cookie jar. A nil *Options is equivalent to a zero
 // Options.
-func New(o *Options) (*Jar, error) {
+func New(o *Options) *Jar {
 	jar := &Jar{
 		entries: make(map[string]map[string]entry),
 	}
 	if o != nil {
 		jar.psList = o.PublicSuffixList
 	}
-	return jar, nil
+	return jar
 }
 
 // entry is the internal representation of a cookie.
